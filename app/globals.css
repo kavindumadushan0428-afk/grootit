@@ -2,25 +2,119 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b132b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: #ffffff;
+  color: #0b132b;
+  scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #0b132b;
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #0066ff;
+  color: #ffffff;
+}
+
+.font-display {
+  font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+.font-mono-tech {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* Soft top-right ambient sky glow + subtle dot matrix */
+.bg-page-glow {
+  background-image:
+    radial-gradient(
+      circle at 90% 4%,
+      rgba(165, 210, 255, 0.58) 0%,
+      rgba(220, 238, 255, 0.28) 30%,
+      rgba(255, 255, 255, 0) 62%
+    ),
+    radial-gradient(
+      circle at 8% 18%,
+      rgba(215, 235, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0) 45%
+    );
+}
+
+.bg-subtle-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(0, 102, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 102, 255, 0.04) 1px, transparent 1px);
+}
+
+.bg-navy-grid {
+  background-size: 44px 44px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatDelayed {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 6.5s ease-in-out 1.2s infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
 }
