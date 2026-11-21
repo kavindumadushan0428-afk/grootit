@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
@@ -57,13 +57,26 @@ interface FormErrors {
 
 function ContactPageContent() {
   const searchParams = useSearchParams();
+  const qDiv = searchParams.get("division");
+  const qSrv = searchParams.get("service");
+  const initialMatchedDivision = qDiv
+    ? DIMENSIONS.find(
+        (d) => d.id === qDiv || d.title.toLowerCase() === qDiv.toLowerCase()
+      )
+    : undefined;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
-  const [divisionId, setDivisionId] = useState("");
-  const [specificService, setSpecificService] = useState("");
+  const [divisionId, setDivisionId] = useState(
+    () => initialMatchedDivision?.id || ""
+  );
+  const [specificService, setSpecificService] = useState(() =>
+    initialMatchedDivision && qSrv && initialMatchedDivision.services.includes(qSrv)
+      ? qSrv
+      : ""
+  );
   const [details, setDetails] = useState("");
   const [budget, setBudget] = useState("Prefer not to say");
   const [timeline, setTimeline] = useState("Prefer not to say");
@@ -72,23 +85,6 @@ function ContactPageContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
-
-  // Pre-select division/service if passed via query string (e.g. /contact?division=ai-automation&service=AI+Agent+Development)
-  useEffect(() => {
-    const qDiv = searchParams.get("division");
-    const qSrv = searchParams.get("service");
-    if (qDiv) {
-      const matched = DIMENSIONS.find(
-        (d) => d.id === qDiv || d.title.toLowerCase() === qDiv.toLowerCase()
-      );
-      if (matched) {
-        setDivisionId(matched.id);
-        if (qSrv && matched.services.includes(qSrv)) {
-          setSpecificService(qSrv);
-        }
-      }
-    }
-  }, [searchParams]);
 
   const activeDivision = DIMENSIONS.find((d) => d.id === divisionId);
 
