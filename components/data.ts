@@ -144,16 +144,27 @@ export const WORK_ITEMS: WorkItem[] = [
   {
     id: "business-website",
     index: "02",
-    title: "Business Website",
-    badge: "Concept",
+    title: "N&M Engineering — Business Website",
+    badge: "Client Project",
     category: "Web & Digital Experiences",
     year: "2026",
     summary:
-      "A concept for a clear, fast small-business website.",
+      "Modern architectural and construction business website for N&M Engineering & Construction.",
     details:
-      "Designed to show how independent businesses can communicate value in seconds—combining crisp editorial hierarchy, fast load performance, and frictionless inquiry flows.",
-    deliverables: ["Information Architecture", "Responsive UI", "Performance Build"],
+      "A bespoke digital experience designed and developed for N&M Engineering & Construction ('Built around your life') — showcasing residential projects, 3D & VR capabilities, end-to-end engineering services (Design & Build, House Plans, 3D Visualization, Renovation, BOQ & Estimation, Landscaping), and streamlined client inquiries.",
+    deliverables: [
+      "Website Design & Development",
+      "Project Portfolio Showcase",
+      "Services & 3D/VR Architecture",
+      "Responsive Performance Build",
+    ],
     visualMotif: "website",
+    image: "/work/nmengineering/Screenshot 2026-11-21 233046.png",
+    gallery: [
+      "/work/nmengineering/Screenshot 2026-11-21 233046.png",
+      "/work/nmengineering/Screenshot 2026-11-21 233119.png",
+      "/work/nmengineering/Screenshot 2026-11-21 233153.png",
+    ],
   },
   {
     id: "ai-workflow-automation",

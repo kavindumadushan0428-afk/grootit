@@ -312,12 +312,11 @@ function WorkDetailModal({
                 ))}
               </div>
 
-              {/* Full Brand Identity Case Study Gallery */}
+              {/* Full Project Case Study Gallery */}
               {activeWork.gallery && activeWork.gallery.length > 1 && (
                 <div className="mt-8 border-t border-slate-100 pt-6">
                   <div className="mb-4 text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
-                    BRAND IDENTITY SYSTEM SHOWCASE ({activeWork.gallery.length}{" "}
-                    BOARDS)
+                    PROJECT SHOWCASE ({activeWork.gallery.length} VIEWS)
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2">
                     {activeWork.gallery.slice(1).map((imgSrc, idx) => (
@@ -327,7 +326,7 @@ function WorkDetailModal({
                       >
                         <Image
                           src={imgSrc}
-                          alt={`${activeWork.title} board ${idx + 1}`}
+                          alt={`${activeWork.title} preview ${idx + 1}`}
                           fill
                           sizes="(max-width: 768px) 100vw, 400px"
                           className="object-cover transition-transform duration-500 hover:scale-105"
