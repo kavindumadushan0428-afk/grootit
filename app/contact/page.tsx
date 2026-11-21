@@ -12,7 +12,7 @@ import {
   MagneticWrap,
   ScrollTimelineLine,
 } from "@/components/MotionPrimitives";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Mail, MessageCircle, ExternalLink } from "lucide-react";
 
 const NEXT_STEPS = [
   {
@@ -98,6 +98,77 @@ export default function ContactPage() {
 
               <div className="mt-6 rounded-xl border border-blue-100 bg-[#EAF2FF] px-4 py-3 text-xs font-medium text-slate-700">
                 Based in Sri Lanka, working with clients internationally.
+              </div>
+
+              {/* Direct Social & Messaging Channels */}
+              <div className="mt-8 space-y-3">
+                <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
+                  CONNECT DIRECTLY
+                </div>
+
+                <a
+                  href="mailto:grootit04@gmail.com"
+                  className="group flex items-center justify-between rounded-xl border border-slate-200/80 bg-white px-4 py-3 text-xs font-semibold text-[#0B132B] shadow-2xs transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-[#EAF2FF]/40"
+                >
+                  <span className="inline-flex items-center gap-2.5">
+                    <Mail className="h-4 w-4 text-[#0066FF]" />
+                    <span>grootit04@gmail.com</span>
+                  </span>
+                  <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#0066FF]" />
+                </a>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <a
+                    href="https://wa.me/94787431328"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between rounded-xl border border-emerald-200/80 bg-emerald-50/50 px-4 py-3 text-xs font-semibold text-emerald-900 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <MessageCircle className="h-4 w-4 text-emerald-600 group-hover:text-white" />
+                      <span>078 743 1328</span>
+                    </span>
+                    <span className="text-[10px] font-medium opacity-75">
+                      WhatsApp
+                    </span>
+                  </a>
+
+                  <a
+                    href="https://wa.me/94785336027"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between rounded-xl border border-emerald-200/80 bg-emerald-50/50 px-4 py-3 text-xs font-semibold text-emerald-900 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <MessageCircle className="h-4 w-4 text-emerald-600 group-hover:text-white" />
+                      <span>078 533 6027</span>
+                    </span>
+                    <span className="text-[10px] font-medium opacity-75">
+                      WhatsApp
+                    </span>
+                  </a>
+                </div>
+
+                <div className="flex flex-wrap gap-3 pt-1">
+                  <a
+                    href="https://web.facebook.com/grootit04"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
+                  >
+                    <span>Facebook</span>
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/grootit04/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
+                  >
+                    <span>Instagram</span>
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
               </div>
             </Reveal>
 
