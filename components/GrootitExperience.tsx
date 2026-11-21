@@ -24,7 +24,9 @@ import {
   ArrowRight,
   Settings,
   Zap,
+  MessageCircle,
 } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/leads";
 
 const DIVISION_ICONS = {
   ai: Bot,
@@ -629,7 +631,7 @@ export function GrootitExperience() {
                 <p className="mx-auto mt-3 max-w-md text-xs text-slate-300 sm:text-sm">
                   Tell us what you&apos;re building. We&apos;ll listen first.
                 </p>
-                <div className="mt-8">
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                   <MagneticWrap>
                     <Link
                       href="/contact"
@@ -638,6 +640,17 @@ export function GrootitExperience() {
                       <span>Start a Conversation</span>
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                     </Link>
+                  </MagneticWrap>
+                  <MagneticWrap strength={0.14}>
+                    <a
+                      href={buildWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-emerald-400/35 bg-emerald-500/15 px-6 py-3.5 text-xs font-semibold text-emerald-200 backdrop-blur-xs transition-colors hover:bg-emerald-500 hover:text-white"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5" />
+                      <span>Chat on WhatsApp</span>
+                    </a>
                   </MagneticWrap>
                 </div>
               </div>

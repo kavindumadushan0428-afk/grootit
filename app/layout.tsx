@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -52,6 +53,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-white text-[#0B132B] selection:bg-[#0066FF] selection:text-white">
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

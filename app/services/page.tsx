@@ -10,7 +10,8 @@ import {
   MagneticWrap,
   ScrollTimelineLine,
 } from "@/components/MotionPrimitives";
-import { Bot, Sparkles, Layout, TrendingUp, ArrowRight } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/leads";
+import { Bot, Sparkles, Layout, TrendingUp, ArrowRight, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -122,23 +123,64 @@ export default function ServicesPage() {
                   id={div.id}
                   className="scroll-mt-28 grid gap-8 rounded-2xl border border-slate-200/80 bg-white p-8 shadow-[0_2px_14px_rgba(15,23,42,0.03)] transition-colors hover:border-blue-200 md:grid-cols-12 md:p-10"
                 >
-                  <div className="md:col-span-5">
-                    <h3 className="text-2xl font-extrabold text-[#0B132B]">
-                      {div.title}
-                    </h3>
-                    <p className="mt-3 text-xs leading-relaxed text-slate-500">
-                      {div.description}
-                    </p>
+                  <div className="flex flex-col justify-between md:col-span-5">
+                    <div>
+                      <h3 className="text-2xl font-extrabold text-[#0B132B]">
+                        {div.title}
+                      </h3>
+                      <p className="mt-3 text-xs leading-relaxed text-slate-500">
+                        {div.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-6 flex flex-wrap items-center gap-2.5">
+                      <Link
+                        href={`/contact?division=${div.id}`}
+                        className="inline-flex items-center gap-1.5 rounded-full bg-[#0066FF] px-4 py-2 text-[11px] font-semibold text-white transition-colors hover:bg-[#0052CC]"
+                      >
+                        <span>Inquire</span>
+                        <ArrowRight className="h-3 w-3" />
+                      </Link>
+                      <a
+                        href={buildWhatsAppUrl({ division: div.title })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50/70 px-4 py-2 text-[11px] font-semibold text-emerald-900 transition-colors hover:bg-emerald-500 hover:text-white"
+                      >
+                        <MessageCircle className="h-3.5 w-3.5" />
+                        <span>WhatsApp</span>
+                      </a>
+                    </div>
                   </div>
 
                   <div className="grid gap-3 sm:grid-cols-2 md:col-span-7">
                     {div.services.map((service) => (
                       <div
                         key={service}
-                        className="group/item flex items-center gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 px-4 py-3 text-xs font-medium text-[#0B132B] transition-all duration-200 hover:translate-x-1 hover:border-blue-200 hover:bg-[#EAF2FF]/60"
+                        className="group/item flex items-center justify-between gap-2 rounded-xl border border-slate-100 bg-slate-50/70 px-4 py-3 text-xs font-medium text-[#0B132B] transition-all duration-200 hover:translate-x-1 hover:border-blue-200 hover:bg-[#EAF2FF]/60"
                       >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0066FF] transition-transform group-hover/item:scale-150" />
-                        <span>{service}</span>
+                        <Link
+                          href={`/contact?division=${div.id}&service=${encodeURIComponent(
+                            service
+                          )}`}
+                          className="flex flex-1 items-center gap-2.5"
+                        >
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0066FF] transition-transform group-hover/item:scale-150" />
+                          <span>{service}</span>
+                        </Link>
+                        <a
+                          href={buildWhatsAppUrl({
+                            division: div.title,
+                            service,
+                          })}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={`WhatsApp about ${service}`}
+                          aria-label={`WhatsApp inquiry for ${service}`}
+                          className="rounded-full p-1 text-slate-400 transition-colors hover:bg-emerald-500 hover:text-white"
+                        >
+                          <MessageCircle className="h-3.5 w-3.5" />
+                        </a>
                       </div>
                     ))}
                   </div>

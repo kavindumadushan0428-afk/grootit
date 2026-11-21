@@ -5,7 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { WORK_ITEMS, WorkCategory, WorkItem } from "./data";
 import { TiltCard } from "./MotionPrimitives";
-import { ArrowRight, X, Sparkles, CheckCircle2 } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/leads";
+import { ArrowRight, X, Sparkles, CheckCircle2, MessageCircle } from "lucide-react";
 
 const CATEGORIES: WorkCategory[] = [
   "All",
@@ -294,9 +295,23 @@ function WorkDetailModal({
               ))}
             </div>
 
-            <div className="mt-7 flex justify-end border-t border-slate-100 pt-5">
+            <div className="mt-7 flex flex-wrap items-center justify-end gap-3 border-t border-slate-100 pt-5">
+              <a
+                href={buildWhatsAppUrl({
+                  division: activeWork.category,
+                  service: activeWork.title,
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-5 py-2.5 text-xs font-semibold text-emerald-900 transition-colors hover:bg-emerald-500 hover:text-white"
+              >
+                <MessageCircle className="h-3.5 w-3.5" />
+                <span>Discuss on WhatsApp</span>
+              </a>
               <Link
-                href="/contact"
+                href={`/contact?division=${encodeURIComponent(
+                  activeWork.category
+                )}`}
                 className="inline-flex items-center gap-2 rounded-full bg-[#0066FF] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#0052CC]"
               >
                 <span>Start a Similar Project</span>
