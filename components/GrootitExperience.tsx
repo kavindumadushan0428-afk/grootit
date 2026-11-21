@@ -470,8 +470,8 @@ export function GrootitExperience() {
               Ideas taking shape.
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-500">
-              Concepts and demonstrations showing how we think. These are
-              labelled honestly and are not client projects.
+              A selection of client work, concepts and demonstrations — each
+              clearly labelled.
             </p>
           </Reveal>
 

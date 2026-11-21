@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { WORK_ITEMS, WorkCategory, WorkItem } from "./data";
 import { TiltCard } from "./MotionPrimitives";
@@ -270,11 +271,21 @@ function WorkDetailModal({
             </div>
 
             <div
-              className={`mt-5 h-52 w-full overflow-hidden rounded-2xl ${getCardGradient(
+              className={`relative mt-5 h-56 w-full overflow-hidden rounded-2xl ${getCardGradient(
                 activeWork.visualMotif
               )}`}
             >
-              <ProjectStageArtwork motif={activeWork.visualMotif} />
+              {activeWork.image ? (
+                <Image
+                  src={activeWork.image}
+                  alt={activeWork.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 600px"
+                  className="object-cover"
+                />
+              ) : (
+                <ProjectStageArtwork motif={activeWork.visualMotif} />
+              )}
             </div>
 
             <h3 className="mt-6 text-2xl font-bold text-[#0B132B]">
@@ -358,8 +369,24 @@ export function Scene04Work({ showAll = false }: Scene04WorkProps) {
                     item.visualMotif
                   )}`}
                 >
-                  <ProjectStageArtwork motif={item.visualMotif} />
-                  <span className="absolute left-4 top-4 z-10 rounded-full bg-white/95 px-3 py-1 text-[10px] font-semibold text-[#0B132B] shadow-xs backdrop-blur-xs">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  ) : (
+                    <ProjectStageArtwork motif={item.visualMotif} />
+                  )}
+                  <span
+                    className={`absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[10px] font-semibold shadow-xs backdrop-blur-xs ${
+                      item.badge === "Client Project"
+                        ? "bg-[#0066FF] text-white"
+                        : "bg-white/95 text-[#0B132B]"
+                    }`}
+                  >
                     {item.badge}
                   </span>
                 </div>

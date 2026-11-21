@@ -91,29 +91,35 @@ export interface WorkItem {
   id: string;
   index: string;
   title: string;
-  badge: "Concept" | "Demo";
+  badge: "Client Project" | "Concept" | "Demo";
   category: Exclude<WorkCategory, "All">;
   year: string;
   summary: string;
   details: string;
   deliverables: string[];
   visualMotif: "brand" | "website" | "ai" | "reel" | "campaign" | "interactive";
+  image?: string;
 }
 
 export const WORK_ITEMS: WorkItem[] = [
   {
     id: "brand-identity-system",
     index: "01",
-    title: "Brand Identity System",
-    badge: "Concept",
+    title: "Neshu Bowie — Brand Identity",
+    badge: "Client Project",
     category: "Creative & Branding",
     year: "2026",
     summary:
-      "A concept exploring a cohesive logo, colour and type system.",
+      "Brand identity, custom line-art emblem and visual direction for Neshu Bowie.",
     details:
-      "An internal studio study demonstrating how disciplined typography, a strict three-colour palette, and modular brand geometry create immediate recognition across digital and physical touchpoints.",
-    deliverables: ["Logo Architecture", "Typography System", "Brand Guidelines"],
+      "A bespoke brand identity crafted for Neshu Bowie ('Whenever & No Limit') — combining an illustrated portrait emblem, signature script and editorial typography, warm tactile colour direction, and lifestyle product presentation.",
+    deliverables: [
+      "Brand Identity Design",
+      "Custom Illustration Mark",
+      "Typography & Art Direction",
+    ],
     visualMotif: "brand",
+    image: "/work/neshu-bowie.jpg",
   },
   {
     id: "business-website",
