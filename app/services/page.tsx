@@ -123,10 +123,7 @@ export default function ServicesPage() {
                   className="scroll-mt-28 grid gap-8 rounded-2xl border border-slate-200/80 bg-white p-8 shadow-[0_2px_14px_rgba(15,23,42,0.03)] transition-colors hover:border-blue-200 md:grid-cols-12 md:p-10"
                 >
                   <div className="md:col-span-5">
-                    <div className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
-                      DIVISION {div.number}
-                    </div>
-                    <h3 className="mt-2 text-2xl font-extrabold text-[#0B132B]">
+                    <h3 className="text-2xl font-extrabold text-[#0B132B]">
                       {div.title}
                     </h3>
                     <p className="mt-3 text-xs leading-relaxed text-slate-500">

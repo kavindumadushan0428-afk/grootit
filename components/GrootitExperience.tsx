@@ -129,22 +129,7 @@ export function GrootitExperience() {
             <div className="grid items-center gap-12 lg:grid-cols-12">
               {/* Left Column */}
               <div className="lg:col-span-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/85 px-3.5 py-1.5 shadow-2xs backdrop-blur-xs"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0066FF] opacity-60" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0066FF]" />
-                  </span>
-                  <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
-                    CREATIVE + INTELLIGENCE
-                  </span>
-                </motion.div>
-
-                <h1 className="mt-5 text-4xl font-extrabold leading-[1.06] tracking-tight text-[#0B132B] sm:text-5xl lg:text-[3.65rem]">
+                <h1 className="text-4xl font-extrabold leading-[1.06] tracking-tight text-[#0B132B] sm:text-5xl lg:text-[3.65rem]">
                   <MaskLine delay={0.05}>Creativity Meets</MaskLine>
                   <MaskLine delay={0.16}>
                     <span className="bg-gradient-to-r from-[#0B132B] via-[#0044AA] to-[#0066FF] bg-clip-text text-transparent">
@@ -187,29 +172,6 @@ export function GrootitExperience() {
                       Explore Our Work
                     </Link>
                   </MagneticWrap>
-                </motion.div>
-
-                {/* Studio Trust Strip */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.7, delay: 0.5 }}
-                  className="mt-10 flex flex-wrap items-center gap-6 border-t border-slate-200/60 pt-6 text-xs text-slate-500"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-[#0B132B]">04</span>
-                    <span>Focused Divisions</span>
-                  </div>
-                  <span className="text-slate-300">•</span>
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-[#0B132B]">Hybrid</span>
-                    <span>Creative + AI Studio</span>
-                  </div>
-                  <span className="text-slate-300">•</span>
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-[#0066FF]">Global</span>
-                    <span>Sri Lanka → International</span>
-                  </div>
                 </motion.div>
               </div>
 
@@ -421,9 +383,6 @@ export function GrootitExperience() {
                         <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#0066FF] group-hover:underline">
                           <span>Explore</span>
                           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                        </span>
-                        <span className="text-[10px] text-slate-400">
-                          {div.services.length} services
                         </span>
                       </div>
                     </Link>
