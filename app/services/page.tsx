@@ -9,9 +9,17 @@ import {
   TiltCard,
   MagneticWrap,
   ScrollTimelineLine,
+  ScrollExpandSection,
+  ScrollPortalCard,
 } from "@/components/MotionPrimitives";
 import { buildWhatsAppUrl } from "@/lib/leads";
-import { Bot, Sparkles, Layout, TrendingUp, ArrowRight, MessageCircle } from "lucide-react";
+import {
+  Bot,
+  Sparkles,
+  Layout,
+  TrendingUp,
+  MessageCircle,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -52,14 +60,13 @@ export default function ServicesPage() {
       <main className="pt-32 md:pt-40">
         {/* Hero Section */}
         <section className="mx-auto max-w-[1200px] px-6 pb-16">
-          <Reveal y={14}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/85 px-3.5 py-1 text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF] shadow-2xs">
-              <span className="h-2 w-2 rounded-full bg-[#0066FF]" />
-              <span>SERVICES</span>
+          <Reveal y={12}>
+            <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
+              SERVICES
             </div>
           </Reveal>
 
-          <h1 className="mt-4 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0B132B] sm:text-5xl">
+          <h1 className="mt-3 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0B132B] sm:text-5xl">
             <MaskLine delay={0.05}>Everything you need to</MaskLine>
             <MaskLine delay={0.16}>
               <span className="bg-gradient-to-r from-[#0B132B] via-[#0044AA] to-[#0066FF] bg-clip-text text-transparent">
@@ -88,7 +95,7 @@ export default function ServicesPage() {
             ))}
           </Reveal>
 
-          {/* 4 Summary Cards Row with 3D Tilt */}
+          {/* 4 Summary Cards Row */}
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {DIMENSIONS.map((div, idx) => {
               const Icon = DIVISION_ICONS[div.visualType];
@@ -136,10 +143,9 @@ export default function ServicesPage() {
                     <div className="mt-6 flex flex-wrap items-center gap-2.5">
                       <Link
                         href={`/contact?division=${div.id}`}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-[#0066FF] px-4 py-2 text-[11px] font-semibold text-white transition-colors hover:bg-[#0052CC]"
+                        className="rounded-full bg-[#0066FF] px-4 py-2 text-[11px] font-semibold text-white transition-colors hover:bg-[#0052CC]"
                       >
-                        <span>Inquire</span>
-                        <ArrowRight className="h-3 w-3" />
+                        Inquire
                       </Link>
                       <a
                         href={buildWhatsAppUrl({ division: div.title })}
@@ -155,33 +161,16 @@ export default function ServicesPage() {
 
                   <div className="grid gap-3 sm:grid-cols-2 md:col-span-7">
                     {div.services.map((service) => (
-                      <div
+                      <Link
                         key={service}
-                        className="group/item flex items-center justify-between gap-2 rounded-xl border border-slate-100 bg-slate-50/70 px-4 py-3 text-xs font-medium text-[#0B132B] transition-all duration-200 hover:translate-x-1 hover:border-blue-200 hover:bg-[#EAF2FF]/60"
+                        href={`/contact?division=${div.id}&service=${encodeURIComponent(
+                          service
+                        )}`}
+                        className="group/item flex items-center gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 px-4 py-3 text-xs font-medium text-[#0B132B] transition-all duration-200 hover:translate-x-1 hover:border-blue-200 hover:bg-[#EAF2FF]/60"
                       >
-                        <Link
-                          href={`/contact?division=${div.id}&service=${encodeURIComponent(
-                            service
-                          )}`}
-                          className="flex flex-1 items-center gap-2.5"
-                        >
-                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0066FF] transition-transform group-hover/item:scale-150" />
-                          <span>{service}</span>
-                        </Link>
-                        <a
-                          href={buildWhatsAppUrl({
-                            division: div.title,
-                            service,
-                          })}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={`WhatsApp about ${service}`}
-                          aria-label={`WhatsApp inquiry for ${service}`}
-                          className="rounded-full p-1 text-slate-400 transition-colors hover:bg-emerald-500 hover:text-white"
-                        >
-                          <MessageCircle className="h-3.5 w-3.5" />
-                        </a>
-                      </div>
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0066FF] transition-transform group-hover/item:scale-150" />
+                        <span>{service}</span>
+                      </Link>
                     ))}
                   </div>
                 </article>
@@ -208,8 +197,8 @@ export default function ServicesPage() {
           </Reveal>
         </section>
 
-        {/* Full-Width Dark Navy Band: One team, joined-up work */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-[#07132A] via-[#0B1D3F] to-[#0E244D] py-16 text-white md:py-20">
+        {/* Scroll-Expanding Dark Navy Band: One team, joined-up work */}
+        <ScrollExpandSection className="relative bg-gradient-to-r from-[#07132A] via-[#0B1D3F] to-[#0E244D] py-16 text-white md:py-20">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-navy-grid"
@@ -233,7 +222,7 @@ export default function ServicesPage() {
               </p>
             </div>
           </Reveal>
-        </section>
+        </ScrollExpandSection>
 
         {/* How We Collaborate (3 Steps with Scroll Timeline) */}
         <section className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
@@ -264,9 +253,9 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Rounded Dark Navy CTA Card */}
+        {/* Scroll-Linked Rounded Dark Navy CTA Card */}
         <section className="mx-auto max-w-[1200px] px-6 pb-20">
-          <Reveal>
+          <ScrollPortalCard>
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#07132A] via-[#0B1E40] to-[#102B5C] px-8 py-16 text-center text-white shadow-2xl md:px-16 md:py-20">
               <div
                 aria-hidden="true"
@@ -285,16 +274,15 @@ export default function ServicesPage() {
                   <MagneticWrap>
                     <Link
                       href="/contact"
-                      className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs font-semibold text-[#0B132B] shadow-md transition-colors hover:bg-blue-50"
+                      className="inline-flex items-center rounded-full bg-white px-7 py-3 text-xs font-semibold text-[#0B132B] shadow-md transition-colors hover:bg-blue-50"
                     >
-                      <span>Start a Conversation</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      Start a Conversation
                     </Link>
                   </MagneticWrap>
                 </div>
               </div>
             </div>
-          </Reveal>
+          </ScrollPortalCard>
         </section>
       </main>
 

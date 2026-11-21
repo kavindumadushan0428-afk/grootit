@@ -3,8 +3,13 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WorkFilterGrid } from "@/components/Scene04Work";
-import { Reveal, MaskLine, MagneticWrap } from "@/components/MotionPrimitives";
-import { ArrowRight } from "lucide-react";
+import {
+  Reveal,
+  MaskLine,
+  MagneticWrap,
+  ScrollExpandSection,
+  ScrollPortalCard,
+} from "@/components/MotionPrimitives";
 
 export const metadata: Metadata = {
   title: "Our Work",
@@ -20,14 +25,13 @@ export default function WorkPage() {
       <main className="pt-32 md:pt-40">
         {/* Header + Filter Grid */}
         <section className="mx-auto max-w-[1200px] px-6 pb-20">
-          <Reveal y={14}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/85 px-3.5 py-1 text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF] shadow-2xs">
-              <span className="h-2 w-2 rounded-full bg-[#0066FF]" />
-              <span>OUR WORK</span>
+          <Reveal y={12}>
+            <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
+              OUR WORK
             </div>
           </Reveal>
 
-          <h1 className="mt-4 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0B132B] sm:text-5xl">
+          <h1 className="mt-3 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0B132B] sm:text-5xl">
             <MaskLine delay={0.05}>Ideas, thoughtfully</MaskLine>
             <MaskLine delay={0.16}>
               <span className="bg-gradient-to-r from-[#0B132B] via-[#0044AA] to-[#0066FF] bg-clip-text text-transparent">
@@ -49,8 +53,8 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* Full-Width Dark Navy Collaboration Band */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-[#07132A] via-[#0B1D3F] to-[#0E244D] py-16 text-white md:py-20">
+        {/* Scroll-Expanding Dark Navy Collaboration Band */}
+        <ScrollExpandSection className="relative bg-gradient-to-r from-[#07132A] via-[#0B1D3F] to-[#0E244D] py-16 text-white md:py-20">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-navy-grid"
@@ -67,11 +71,11 @@ export default function WorkPage() {
               feels like yours, only sharper.
             </p>
           </Reveal>
-        </section>
+        </ScrollExpandSection>
 
-        {/* Rounded Dark Navy CTA Card */}
+        {/* Scroll-Linked Rounded Dark Navy CTA Card */}
         <section className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
-          <Reveal>
+          <ScrollPortalCard>
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#07132A] via-[#0B1E40] to-[#102B5C] px-8 py-16 text-center text-white shadow-2xl md:px-16 md:py-20">
               <div
                 aria-hidden="true"
@@ -90,16 +94,15 @@ export default function WorkPage() {
                   <MagneticWrap>
                     <Link
                       href="/contact"
-                      className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs font-semibold text-[#0B132B] shadow-md transition-colors hover:bg-blue-50"
+                      className="inline-flex items-center rounded-full bg-white px-7 py-3 text-xs font-semibold text-[#0B132B] shadow-md transition-colors hover:bg-blue-50"
                     >
-                      <span>Start a Conversation</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      Start a Conversation
                     </Link>
                   </MagneticWrap>
                 </div>
               </div>
             </div>
-          </Reveal>
+          </ScrollPortalCard>
         </section>
       </main>
 

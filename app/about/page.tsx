@@ -13,15 +13,10 @@ import {
   MaskLine,
   TiltCard,
   MagneticWrap,
+  ScrollExpandSection,
+  ScrollPortalCard,
 } from "@/components/MotionPrimitives";
-import {
-  Bot,
-  Sparkles,
-  ArrowRight,
-  Lightbulb,
-  HeartHandshake,
-  Zap,
-} from "lucide-react";
+import { Bot, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -29,7 +24,6 @@ export const metadata: Metadata = {
     "GROOTIT is a two-founder hybrid Creative + AI agency based in Sri Lanka, working with businesses internationally.",
 };
 
-const BELIEF_ICONS = [Lightbulb, HeartHandshake, Zap];
 const FOUNDER_ICONS = [Bot, Sparkles];
 
 export default function AboutPage() {
@@ -40,14 +34,13 @@ export default function AboutPage() {
       <main className="pt-32 md:pt-40">
         {/* Hero */}
         <section className="mx-auto max-w-[1200px] px-6 pb-16">
-          <Reveal y={14}>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/85 px-3.5 py-1 text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF] shadow-2xs">
-              <span className="h-2 w-2 rounded-full bg-[#0066FF]" />
-              <span>ABOUT US</span>
+          <Reveal y={12}>
+            <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
+              ABOUT US
             </div>
           </Reveal>
 
-          <h1 className="mt-4 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0B132B] sm:text-5xl">
+          <h1 className="mt-3 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0B132B] sm:text-5xl">
             <MaskLine delay={0.05}>Small team.</MaskLine>
             <MaskLine delay={0.16}>
               <span className="bg-gradient-to-r from-[#0B132B] via-[#0044AA] to-[#0066FF] bg-clip-text text-transparent">
@@ -64,7 +57,7 @@ export default function AboutPage() {
 
           {/* Our Story */}
           <Reveal className="mt-16">
-            <div className="grid gap-8 rounded-3xl border border-slate-200/70 bg-white/85 p-8 shadow-[0_4px_24px_rgba(15,23,42,0.02)] backdrop-blur-xs md:grid-cols-12 md:items-center md:p-10">
+            <div className="grid gap-8 md:grid-cols-12 md:items-start">
               <div className="md:col-span-5">
                 <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
                   OUR STORY
@@ -76,7 +69,7 @@ export default function AboutPage() {
                 </h2>
               </div>
               <div className="md:col-span-7">
-                <p className="text-sm leading-relaxed text-slate-600">
+                <p className="text-sm leading-relaxed text-slate-500">
                   GROOTIT brings together creative craft, modern technology and
                   artificial intelligence under one roof. We help businesses
                   build their brand, launch digital experiences and put
@@ -95,30 +88,24 @@ export default function AboutPage() {
               </div>
             </Reveal>
             <div className="mt-5 grid gap-5 md:grid-cols-3">
-              {BELIEFS.map((belief, idx) => {
-                const Icon = BELIEF_ICONS[idx] || Sparkles;
-                return (
-                  <Reveal key={belief.number} delay={idx * 0.08}>
-                    <TiltCard className="h-full rounded-2xl">
-                      <div className="group h-full rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_2px_12px_rgba(15,23,42,0.02)] transition-all duration-300 hover:border-blue-200 hover:shadow-md">
-                        <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#EAF2FF] text-[#0066FF] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0066FF] group-hover:text-white">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <h3 className="text-sm font-bold text-[#0B132B]">
-                          {belief.title}
-                        </h3>
-                        <p className="mt-2 text-xs leading-relaxed text-slate-500">
-                          {belief.description}
-                        </p>
-                      </div>
-                    </TiltCard>
-                  </Reveal>
-                );
-              })}
+              {BELIEFS.map((belief, idx) => (
+                <Reveal key={belief.number} delay={idx * 0.08}>
+                  <TiltCard className="h-full rounded-2xl">
+                    <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_2px_12px_rgba(15,23,42,0.02)] transition-all duration-300 hover:border-blue-200 hover:shadow-md">
+                      <h3 className="text-sm font-bold text-[#0B132B]">
+                        {belief.title}
+                      </h3>
+                      <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                        {belief.description}
+                      </p>
+                    </div>
+                  </TiltCard>
+                </Reveal>
+              ))}
             </div>
           </div>
 
-          {/* The Team: Two Founders */}
+          {/* The Team: Two Founders (Clean & Uncluttered) */}
           <div className="mt-16">
             <Reveal>
               <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
@@ -135,30 +122,17 @@ export default function AboutPage() {
                 return (
                   <Reveal key={founder.number} delay={idx * 0.1}>
                     <TiltCard className="h-full rounded-2xl">
-                      <div className="group flex h-full items-start gap-5 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_2px_14px_rgba(15,23,42,0.03)] transition-all duration-300 hover:border-blue-200 hover:shadow-lg">
-                        <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#D8EAFF] via-[#9DC8FF] to-[#3B86FF] text-white shadow-inner">
-                          <Icon className="h-7 w-7 drop-shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
-                          <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[9px] font-extrabold text-[#0066FF] shadow-xs">
-                            {founder.number}
-                          </span>
+                      <div className="group flex h-full items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-[0_2px_14px_rgba(15,23,42,0.03)] transition-all duration-300 hover:border-blue-200 hover:shadow-md">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#D8EAFF] to-[#8BBCFF] text-[#0066FF]">
+                          <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                         </div>
                         <div>
-                          <h3 className="text-base font-bold text-[#0B132B]">
+                          <h3 className="text-sm font-bold text-[#0B132B]">
                             {founder.role}
                           </h3>
                           <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
                             {founder.focus}
                           </p>
-                          <div className="mt-3.5 flex flex-wrap gap-1.5">
-                            {founder.tags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="rounded-full bg-[#EAF2FF] px-2.5 py-0.5 text-[10px] font-semibold text-[#0066FF]"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
                         </div>
                       </div>
                     </TiltCard>
@@ -180,10 +154,9 @@ export default function AboutPage() {
                 <Reveal key={div.id} delay={idx * 0.06}>
                   <Link
                     href={`/services#${div.id}`}
-                    className="group flex items-center justify-between rounded-xl border border-slate-200/80 bg-white px-5 py-4 text-xs font-bold text-[#0B132B] shadow-2xs transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-[#EAF2FF] hover:text-[#0066FF]"
+                    className="block rounded-xl border border-slate-200/80 bg-white px-5 py-4 text-xs font-bold text-[#0B132B] shadow-2xs transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-[#EAF2FF] hover:text-[#0066FF]"
                   >
-                    <span>{div.title}</span>
-                    <ArrowRight className="h-3.5 w-3.5 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-[#0066FF]" />
+                    {div.title}
                   </Link>
                 </Reveal>
               ))}
@@ -191,8 +164,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Full-Width Dark Navy Band: Working Principles */}
-        <section className="relative overflow-hidden bg-gradient-to-r from-[#07132A] via-[#0B1D3F] to-[#0E244D] py-16 text-white md:py-20">
+        {/* Scroll-Expanding Dark Navy Band: Working Principles */}
+        <ScrollExpandSection className="relative bg-gradient-to-r from-[#07132A] via-[#0B1D3F] to-[#0E244D] py-16 text-white md:py-20">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-navy-grid"
@@ -210,19 +183,19 @@ export default function AboutPage() {
               {WORKING_PRINCIPLES.map((item, idx) => (
                 <Reveal key={item} delay={idx * 0.08}>
                   <li className="flex items-center gap-3 text-xs text-slate-200 sm:text-sm">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-[#4D94FF] shadow-[0_0_8px_#4D94FF]" />
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#4D94FF]" />
                     <span>{item}</span>
                   </li>
                 </Reveal>
               ))}
             </ul>
           </div>
-        </section>
+        </ScrollExpandSection>
 
         {/* Our Promise Box */}
         <section className="mx-auto max-w-[1200px] px-6 pt-16">
           <Reveal>
-            <div className="rounded-2xl border border-blue-100 bg-[#F2F7FF] p-8 md:p-10">
+            <div className="rounded-2xl bg-[#F2F7FF] p-8 md:p-10">
               <div className="text-[10px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
                 OUR PROMISE
               </div>
@@ -233,9 +206,9 @@ export default function AboutPage() {
           </Reveal>
         </section>
 
-        {/* Rounded Dark Navy CTA Card */}
+        {/* Scroll-Linked Rounded Dark Navy CTA Card */}
         <section className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
-          <Reveal>
+          <ScrollPortalCard>
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#07132A] via-[#0B1E40] to-[#102B5C] px-8 py-16 text-center text-white shadow-2xl md:px-16 md:py-20">
               <div
                 aria-hidden="true"
@@ -254,16 +227,15 @@ export default function AboutPage() {
                   <MagneticWrap>
                     <Link
                       href="/contact"
-                      className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs font-semibold text-[#0B132B] shadow-md transition-colors hover:bg-blue-50"
+                      className="inline-flex items-center rounded-full bg-white px-7 py-3 text-xs font-semibold text-[#0B132B] shadow-md transition-colors hover:bg-blue-50"
                     >
-                      <span>Start a Conversation</span>
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      Start a Conversation
                     </Link>
                   </MagneticWrap>
                 </div>
               </div>
             </div>
-          </Reveal>
+          </ScrollPortalCard>
         </section>
       </main>
 

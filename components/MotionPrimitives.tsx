@@ -22,15 +22,15 @@ interface RevealProps {
 export function Reveal({
   children,
   delay = 0,
-  y = 26,
+  y = 28,
   className = "",
 }: RevealProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y, filter: "blur(6px)" }}
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.65, delay, ease: EASE_OUT_EXPO }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, delay, ease: EASE_OUT_EXPO }}
       className={className}
     >
       {children}
@@ -53,12 +53,85 @@ export function MaskLine({
       <motion.span
         initial={{ y: "105%", opacity: 0 }}
         animate={{ y: "0%", opacity: 1 }}
-        transition={{ duration: 0.8, delay, ease: EASE_OUT_EXPO }}
+        transition={{ duration: 0.82, delay, ease: EASE_OUT_EXPO }}
         className="block"
       >
         {children}
       </motion.span>
     </span>
+  );
+}
+
+/**
+ * Scrollytelling Section Wrapper:
+ * Smoothly expands a dark-navy or feature section from a rounded inset card
+ * to full width as the user scrolls into it.
+ */
+export function ScrollExpandSection({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 92%", "start 25%"],
+  });
+
+  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [0.93, 1]), {
+    stiffness: 160,
+    damping: 26,
+  });
+  const borderRadius = useTransform(scrollYProgress, [0, 1], [28, 0]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ scale, borderRadius }}
+      className={`overflow-hidden will-change-transform ${className}`}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/**
+ * Scrollytelling CTA Portal:
+ * Scroll-linked 3D perspective & scale reveal for closing CTA cards.
+ */
+export function ScrollPortalCard({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 92%", "center 55%"],
+  });
+
+  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [0.9, 1]), {
+    stiffness: 150,
+    damping: 24,
+  });
+  const y = useSpring(useTransform(scrollYProgress, [0, 1], [36, 0]), {
+    stiffness: 150,
+    damping: 24,
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.45, 0.85, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ scale, y, opacity }}
+      className={`will-change-transform ${className}`}
+    >
+      {children}
+    </motion.div>
   );
 }
 
@@ -113,7 +186,6 @@ export function TiltCard({
       }}
       className={`relative will-change-transform ${className}`}
     >
-      {/* Dynamic soft blue spotlight overlay */}
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] transition-opacity duration-300"
@@ -179,7 +251,7 @@ export function ScrollTimelineLine({ className = "" }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 85%", "end 55%"],
+    offset: ["start 85%", "end 50%"],
   });
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 140,
@@ -197,38 +269,6 @@ export function ScrollTimelineLine({ className = "" }: { className?: string }) {
         style={{ scaleX, transformOrigin: "left center" }}
         className="h-full w-full bg-gradient-to-r from-[#0066FF] via-[#4DA3FF] to-[#0066FF]"
       />
-    </div>
-  );
-}
-
-const MARQUEE_ITEMS = [
-  "AI & AUTOMATION",
-  "CREATIVE & BRANDING",
-  "WEB & DIGITAL EXPERIENCES",
-  "DIGITAL GROWTH",
-  "CREATIVITY MEETS INTELLIGENCE",
-  "SRI LANKA → INTERNATIONAL",
-];
-
-/** Sleek architectural marquee ticker */
-export function StudioMarquee() {
-  return (
-    <div className="relative overflow-hidden border-y border-slate-200/70 bg-white py-4 select-none">
-      <div className="flex w-max animate-marquee items-center gap-10">
-        {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map(
-          (item, i) => (
-            <div
-              key={`${item}-${i}`}
-              className="flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] uppercase text-slate-400"
-            >
-              <span className="transition-colors hover:text-[#0066FF]">
-                {item}
-              </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0066FF]/50" />
-            </div>
-          )
-        )}
-      </div>
     </div>
   );
 }
