@@ -99,6 +99,7 @@ export interface WorkItem {
   deliverables: string[];
   visualMotif: "brand" | "website" | "ai" | "reel" | "campaign" | "interactive";
   image?: string;
+  gallery?: string[];
 }
 
 export const WORK_ITEMS: WorkItem[] = [
@@ -112,14 +113,33 @@ export const WORK_ITEMS: WorkItem[] = [
     summary:
       "Brand identity, custom line-art emblem and visual direction for Neshu Bowie.",
     details:
-      "A bespoke brand identity crafted for Neshu Bowie ('Whenever & No Limit') — combining an illustrated portrait emblem, signature script and editorial typography, warm tactile colour direction, and lifestyle product presentation.",
+      "A bespoke brand identity system crafted for Neshu Bowie ('Whenever & No Limit') — combining an illustrated portrait emblem, signature script and editorial typography, primary/monochrome/warm colour variations, and lifestyle product presentation.",
     deliverables: [
       "Brand Identity Design",
       "Custom Illustration Mark",
+      "Logo Variations & Palette",
       "Typography & Art Direction",
     ],
     visualMotif: "brand",
     image: "/work/neshu-bowie.jpg",
+    gallery: [
+      "/work/neshu-bowie.jpg",
+      "/work/neshu-bowie/Main.png",
+      "/work/neshu-bowie/Primary.png",
+      "/work/neshu-bowie/Brown.png",
+      "/work/neshu-bowie/Black.png",
+      "/work/neshu-bowie/White.png",
+      "/work/neshu-bowie/1.png",
+      "/work/neshu-bowie/2.png",
+      "/work/neshu-bowie/3.png",
+      "/work/neshu-bowie/4.png",
+      "/work/neshu-bowie/5.png",
+      "/work/neshu-bowie/6.png",
+      "/work/neshu-bowie/7.png",
+      "/work/neshu-bowie/8.png",
+      "/work/neshu-bowie/9.png",
+      "/work/neshu-bowie/10.png",
+    ],
   },
   {
     id: "business-website",
