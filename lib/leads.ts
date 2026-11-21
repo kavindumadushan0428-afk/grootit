@@ -12,9 +12,9 @@ export const LEAD_CONFIG = {
     label: "WhatsApp 1 (078 743 1328)",
   },
   whatsappSecondary: {
-    raw: process.env.NEXT_PUBLIC_WHATSAPP_SECONDARY || "94785336027",
-    display: "078 533 6027",
-    label: "WhatsApp 2 (078 533 6027)",
+    raw: process.env.NEXT_PUBLIC_WHATSAPP_SECONDARY || "94725076038",
+    display: "072 507 6038",
+    label: "WhatsApp 2 (072 507 6038)",
   },
 };
 

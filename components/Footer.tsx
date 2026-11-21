@@ -94,13 +94,13 @@ export function Footer() {
               </a>
 
               <a
-                href="https://wa.me/94785336027"
+                href="https://wa.me/94725076038"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-3.5 py-2 text-xs font-medium text-emerald-300 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
               >
                 <MessageCircle className="h-3.5 w-3.5" />
-                <span>WhatsApp · 078 533 6027</span>
+                <span>WhatsApp · 072 507 6038</span>
               </a>
             </div>
           </div>
