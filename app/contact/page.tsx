@@ -242,10 +242,6 @@ function ContactPageContent() {
                 result.
               </p>
 
-              <div className="mt-6 rounded-xl border border-blue-100 bg-[#EAF2FF] px-4 py-3 text-xs font-medium text-slate-700">
-                Based in Sri Lanka, working with clients internationally.
-              </div>
-
               {/* Direct Social & Messaging Channels with Pre-filled Service Context */}
               <div className="mt-8 space-y-3">
                 <div className="flex items-center justify-between">
