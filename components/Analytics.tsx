@@ -1,6 +1,8 @@
 import Script from "next/script";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "";
+const GTM_ID =
+  process.env.NEXT_PUBLIC_GTM_ID ??
+  (process.env.NEXT_PUBLIC_GA_ID ? "" : "GTM-KCGMFBB8");
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 
 // Strict format checks so env values can never inject arbitrary script.

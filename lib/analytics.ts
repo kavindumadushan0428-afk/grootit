@@ -94,7 +94,10 @@ export function getLeadSource(): LeadSource {
   return readStored() ?? DIRECT;
 }
 
-const GTM_ACTIVE = Boolean(process.env.NEXT_PUBLIC_GTM_ID);
+const GTM_ACTIVE = Boolean(
+  process.env.NEXT_PUBLIC_GTM_ID ??
+    (process.env.NEXT_PUBLIC_GA_ID ? "" : "GTM-KCGMFBB8")
+);
 
 /**
  * Sends an event to GTM's dataLayer (when GTM is configured) or to GA4 via
