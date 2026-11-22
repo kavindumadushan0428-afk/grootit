@@ -1,0 +1,28 @@
+# GROOTIT
+
+> GROOTIT is a hybrid Creative + AI agency based in Sri Lanka. It builds brand identities, websites, AI automation and digital marketing for businesses in Sri Lanka and internationally.
+
+GROOTIT works across four divisions: AI & Automation, Creative & Branding, Web & Digital Experiences, and Digital Growth. It is a small studio founded by two people, one with an AI and technology focus and one with a creative and digital focus.
+
+## Main pages
+
+- [Home](/): overview of what GROOTIT does
+- [Services](/services): the four divisions and every individual service, with answers to common questions
+- [Our Work](/work): client projects and concept work, each clearly labelled
+- [About](/about): the studio, its founders' complementary strengths and how it works
+- [Contact](/contact): WhatsApp, email and social channels
+
+## Industries served
+
+- [Restaurants & Cafés](/industries/restaurants-and-cafes)
+- [Construction & Property](/industries/construction-and-property)
+- [Retail & E-commerce](/industries/retail-and-ecommerce)
+- [Startups](/industries/startups)
+- [Professional & Local Services](/industries/professional-and-local-services)
+
+## Contact
+
+- Email: grootit04@gmail.com
+- WhatsApp: +94 78 743 1328, +94 72 507 6038
+- Facebook: https://www.facebook.com/grootit04
+- Instagram: https://www.instagram.com/grootit04/

@@ -12,7 +12,7 @@ export function FloatingWhatsApp() {
   const [selectedDivision, setSelectedDivision] = useState<string>("");
 
   return (
-    <div className="fixed bottom-5 right-5 z-40">
+    <div data-section="floating_whatsapp" className="fixed bottom-5 right-5 z-40">
       <AnimatePresence>
         {open && (
           <motion.div

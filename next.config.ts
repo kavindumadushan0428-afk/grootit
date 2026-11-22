@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     agentFeedback: true,
   },
   cacheComponents: true,
+  poweredByHeader: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   partialPrefetching: true,
   turbopack: {
     rules: {

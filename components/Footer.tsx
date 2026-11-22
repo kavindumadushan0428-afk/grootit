@@ -6,6 +6,7 @@ import {
   WhatsAppBrandIcon,
   GmailBrandIcon,
 } from "./BrandIcons";
+import { INDUSTRIES } from "@/lib/content";
 
 export function Footer() {
   return (
@@ -16,7 +17,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1200px] px-6 pt-16 pb-10">
         <div className="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-12">
           {/* Left Brand Info + Social & Direct Contact */}
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Link
               href="/"
               className="group inline-flex items-center rounded-xl bg-white px-3.5 py-2 shadow-sm transition-transform hover:scale-[1.02]"
@@ -93,7 +94,7 @@ export function Footer() {
           </div>
 
           {/* Explore */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
             <h3 className="text-[11px] font-semibold tracking-[0.14em] uppercase text-slate-400">
               EXPLORE
             </h3>
@@ -127,7 +128,7 @@ export function Footer() {
           </div>
 
           {/* Divisions */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <h3 className="text-[11px] font-semibold tracking-[0.14em] uppercase text-slate-400">
               DIVISIONS
             </h3>
@@ -164,6 +165,24 @@ export function Footer() {
                   Digital Growth
                 </Link>
               </li>
+            </ul>
+          </div>
+          {/* Industries (internal links to industry landing pages) */}
+          <div className="md:col-span-3">
+            <h3 className="text-[11px] font-semibold tracking-[0.14em] uppercase text-slate-400">
+              INDUSTRIES
+            </h3>
+            <ul className="mt-4 space-y-2.5 text-xs text-slate-300">
+              {INDUSTRIES.map((industry) => (
+                <li key={industry.slug}>
+                  <Link
+                    href={`/industries/${industry.slug}`}
+                    className="transition-colors hover:text-[#4DA3FF]"
+                  >
+                    {industry.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -22,6 +22,8 @@ export interface WhatsAppMessageParams {
   account?: "primary" | "secondary";
   division?: string;
   service?: string;
+  /** Fully custom first line (e.g. industry- or intent-specific message). */
+  message?: string;
   name?: string;
   company?: string;
   phone?: string;
@@ -43,7 +45,9 @@ export function buildWhatsAppUrl(params: WhatsAppMessageParams = {}): string {
 
   const lines: string[] = [];
 
-  if (params.service && params.division) {
+  if (params.message) {
+    lines.push(params.message);
+  } else if (params.service && params.division) {
     lines.push(
       `Hi GROOTIT! I'm interested in *${params.service}* (${params.division}).`
     );

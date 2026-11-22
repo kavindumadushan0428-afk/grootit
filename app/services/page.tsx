@@ -21,11 +21,22 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Services",
+import {
+  pageMetadata,
+  breadcrumbSchema,
+  faqSchema,
+  servicesSchema,
+} from "@/lib/seo";
+import { SERVICE_FAQS } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
+import { FaqList } from "@/components/FaqList";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Web Design, Branding, AI & Digital Marketing",
   description:
-    "Explore GROOTIT's four focused divisions: AI & Automation, Creative & Branding, Web & Digital Experiences, and Digital Growth.",
-};
+    "GROOTIT services in Sri Lanka: brand identity, websites and e-commerce, AI chatbots and automation, SEO and social media, all from one creative team.",
+  path: "/services",
+});
 
 const DIVISION_ICONS = {
   ai: Bot,
@@ -56,6 +67,16 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white bg-page-glow text-[#0B132B]">
       <Navbar />
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+          ...servicesSchema(),
+          faqSchema(SERVICE_FAQS),
+        ]}
+      />
 
       <main className="pt-32 md:pt-40">
         {/* Hero Section */}
@@ -142,7 +163,7 @@ export default function ServicesPage() {
 
                     <div className="mt-6 flex flex-wrap items-center gap-2.5">
                       <Link
-                        href={`/contact?division=${div.id}`}
+                        href={`/contact`}
                         className="rounded-full bg-[#0066FF] px-4 py-2 text-[11px] font-semibold text-white transition-colors hover:bg-[#0052CC]"
                       >
                         Inquire
@@ -161,16 +182,20 @@ export default function ServicesPage() {
 
                   <div className="grid gap-3 sm:grid-cols-2 md:col-span-7">
                     {div.services.map((service) => (
-                      <Link
+                      <a
                         key={service}
-                        href={`/contact?division=${div.id}&service=${encodeURIComponent(
-                          service
-                        )}`}
+                        href={buildWhatsAppUrl({
+                          division: div.title,
+                          service,
+                        })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={`Ask about ${service} on WhatsApp`}
                         className="group/item flex items-center gap-2.5 rounded-xl border border-slate-100 bg-slate-50/70 px-4 py-3 text-xs font-medium text-[#0B132B] transition-all duration-200 hover:translate-x-1 hover:border-blue-200 hover:bg-[#EAF2FF]/60"
                       >
                         <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0066FF] transition-transform group-hover/item:scale-150" />
                         <span>{service}</span>
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </article>
@@ -251,6 +276,21 @@ export default function ServicesPage() {
               </Reveal>
             ))}
           </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mx-auto max-w-[900px] px-6 pb-16">
+          <Reveal>
+            <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
+              QUESTIONS
+            </div>
+            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-[#0B132B] sm:text-3xl">
+              Frequently asked questions
+            </h2>
+            <div className="mt-6">
+              <FaqList faqs={SERVICE_FAQS} />
+            </div>
+          </Reveal>
         </section>
 
         {/* Scroll-Linked Rounded Dark Navy CTA Card */}

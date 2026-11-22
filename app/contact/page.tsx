@@ -18,11 +18,15 @@ import {
   GmailBrandIcon,
 } from "@/components/BrandIcons";
 
-export const metadata: Metadata = {
-  title: "Contact",
+import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Contact: Start a Project via WhatsApp or Email",
   description:
-    "Get in touch with GROOTIT via WhatsApp, email, or social media to discuss your next brand, web, or AI project.",
-};
+    "Talk to GROOTIT about your website, brand or AI project. Message us on WhatsApp, email grootit04@gmail.com or follow us on Facebook and Instagram.",
+  path: "/contact",
+});
 
 const NEXT_STEPS = [
   {
@@ -51,6 +55,12 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white bg-page-glow text-[#0B132B]">
       <Navbar />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
 
       <main className="pt-32 md:pt-40">
         {/* Hero & Direct Contact Channels */}
@@ -92,8 +102,21 @@ export default function ContactPage() {
 
             {/* Right Direct Social & Messaging Channels */}
             <Reveal delay={0.16} className="space-y-4 lg:col-span-7">
-              <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
-                CONNECT DIRECTLY
+              <a
+                href={buildWhatsAppUrl({
+                  message:
+                    "Hi GROOTIT! I'd like to book a consultation about my project.",
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0066FF] px-5 py-4 text-xs font-semibold text-white shadow-[0_8px_24px_rgba(0,102,255,0.28)] transition-colors hover:bg-[#0052CC] sm:w-auto"
+              >
+                <WhatsAppBrandIcon className="h-4 w-4" />
+                <span>Book a consultation on WhatsApp</span>
+              </a>
+
+              <div className="pt-2 text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
+                OR CONNECT DIRECTLY
               </div>
 
               <a

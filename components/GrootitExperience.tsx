@@ -30,6 +30,8 @@ import {
   ArrowRight,
   Settings,
 } from "lucide-react";
+import { INDUSTRIES } from "@/lib/content";
+import { buildWhatsAppUrl } from "@/lib/leads";
 
 const DIVISION_ICONS = {
   ai: Bot,
@@ -208,6 +210,18 @@ export function GrootitExperience() {
                       Explore Our Work
                     </Link>
                   </MagneticWrap>
+
+                  <a
+                    href={buildWhatsAppUrl({
+                      message:
+                        "Hi GROOTIT! I found your website and I'd like to talk about my project.",
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-emerald-700 underline-offset-4 hover:underline"
+                  >
+                    Prefer chat? WhatsApp us →
+                  </a>
                 </motion.div>
               </motion.div>
 
@@ -325,6 +339,32 @@ export function GrootitExperience() {
                 </Reveal>
               );
             })}
+          </div>
+        </section>
+
+        {/* WHO WE HELP (industry landing pages, internal linking) */}
+        <section className="mx-auto max-w-[1200px] px-6 pb-20">
+          <Reveal>
+            <div className="text-[11px] font-bold tracking-[0.14em] uppercase text-[#0066FF]">
+              WHO WE HELP
+            </div>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-[#0B132B] sm:text-4xl">
+              Built for businesses like yours.
+            </h2>
+          </Reveal>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {INDUSTRIES.map((industry, idx) => (
+              <Reveal key={industry.slug} delay={idx * 0.06}>
+                <Link
+                  href={`/industries/${industry.slug}`}
+                  className="group flex h-full items-center justify-between gap-3 rounded-2xl border border-slate-200/80 bg-white px-5 py-5 text-sm font-bold text-[#0B132B] shadow-[0_2px_14px_rgba(15,23,42,0.03)] transition-all hover:-translate-y-1 hover:border-blue-200 hover:text-[#0066FF] hover:shadow-[0_14px_32px_rgba(0,102,255,0.08)]"
+                >
+                  <span>{industry.name}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-[#0066FF]" />
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </section>
 

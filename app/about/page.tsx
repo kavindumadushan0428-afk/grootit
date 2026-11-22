@@ -18,11 +18,15 @@ import {
 } from "@/components/MotionPrimitives";
 import { Bot, Sparkles } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "About Us",
+import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+
+export const metadata: Metadata = pageMetadata({
+  title: "About Us: A Creative + AI Studio in Sri Lanka",
   description:
-    "GROOTIT is a two-founder hybrid Creative + AI agency based in Sri Lanka, working with businesses internationally.",
-};
+    "Meet GROOTIT, a two-founder Creative + AI studio in Sri Lanka combining branding, web and AI to help businesses create, connect and grow.",
+  path: "/about",
+});
 
 const FOUNDER_ICONS = [Bot, Sparkles];
 
@@ -30,6 +34,12 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white bg-page-glow text-[#0B132B]">
       <Navbar />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about" },
+        ])}
+      />
 
       <main className="pt-32 md:pt-40">
         {/* Hero */}

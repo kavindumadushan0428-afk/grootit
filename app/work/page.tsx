@@ -11,16 +11,26 @@ import {
   ScrollPortalCard,
 } from "@/components/MotionPrimitives";
 
-export const metadata: Metadata = {
-  title: "Our Work",
+import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Our Work: Brand Identity & Website Projects",
   description:
-    "A selection of concepts and interactive demonstrations from GROOTIT across AI, Branding, Web, and Digital Growth.",
-};
+    "Selected GROOTIT projects: a brand identity for Neshu Bowie, a website for N&M Engineering & Construction, plus clearly labelled concepts and demos.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   return (
     <div className="min-h-screen bg-white bg-page-glow text-[#0B132B]">
       <Navbar />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Our Work", path: "/work" },
+        ])}
+      />
 
       <main className="pt-32 md:pt-40">
         {/* Header + Filter Grid */}
