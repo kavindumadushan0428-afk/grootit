@@ -1,24 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MessageCircle } from "lucide-react";
-
-function FacebookIcon({ className = "h-4 w-4" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M13.5 22v-8.2h2.75l.41-3.2H13.5V8.55c0-.93.26-1.56 1.59-1.56h1.7V4.13c-.29-.04-1.3-.13-2.47-.13-2.45 0-4.12 1.49-4.12 4.24v2.36H7.44v3.2h2.76V22h3.3z" />
-    </svg>
-  );
-}
-
-function InstagramIcon({ className = "h-4 w-4" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
+import {
+  FacebookBrandIcon,
+  InstagramBrandIcon,
+  WhatsAppBrandIcon,
+  GmailBrandIcon,
+} from "./BrandIcons";
 
 export function Footer() {
   return (
@@ -54,9 +41,9 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GROOTIT on Facebook"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-slate-200 transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-slate-200 transition-all hover:-translate-y-0.5 hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white"
               >
-                <FacebookIcon className="h-3.5 w-3.5" />
+                <FacebookBrandIcon className="h-4 w-4" />
                 <span>Facebook</span>
               </a>
 
@@ -65,18 +52,18 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GROOTIT on Instagram"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-slate-200 transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-slate-200 transition-all hover:-translate-y-0.5 hover:border-[#D6249F] hover:bg-[#D6249F] hover:text-white"
               >
-                <InstagramIcon className="h-3.5 w-3.5" />
+                <InstagramBrandIcon className="h-4 w-4" />
                 <span>Instagram</span>
               </a>
 
               <a
                 href="mailto:grootit04@gmail.com"
                 aria-label="Email grootit04@gmail.com"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-slate-200 transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-medium text-slate-200 transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
               >
-                <Mail className="h-3.5 w-3.5" />
+                <GmailBrandIcon className="h-4 w-4" />
                 <span>grootit04@gmail.com</span>
               </a>
             </div>
@@ -87,9 +74,9 @@ export function Footer() {
                 href="https://wa.me/94787431328"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-3.5 py-2 text-xs font-medium text-emerald-300 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-3.5 py-2 text-xs font-medium text-emerald-300 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
               >
-                <MessageCircle className="h-3.5 w-3.5" />
+                <WhatsAppBrandIcon className="h-4 w-4" />
                 <span>WhatsApp · 078 743 1328</span>
               </a>
 
@@ -97,9 +84,9 @@ export function Footer() {
                 href="https://wa.me/94725076038"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-3.5 py-2 text-xs font-medium text-emerald-300 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-3.5 py-2 text-xs font-medium text-emerald-300 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
               >
-                <MessageCircle className="h-3.5 w-3.5" />
+                <WhatsAppBrandIcon className="h-4 w-4" />
                 <span>WhatsApp · 072 507 6038</span>
               </a>
             </div>

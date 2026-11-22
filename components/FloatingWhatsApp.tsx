@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { MessageCircle, X, ArrowUpRight } from "lucide-react";
+import { X, ArrowUpRight } from "lucide-react";
+import { WhatsAppBrandIcon } from "./BrandIcons";
 import { DIMENSIONS } from "./data";
 import { buildWhatsAppUrl, LEAD_CONFIG } from "@/lib/leads";
 
@@ -24,8 +25,8 @@ export function FloatingWhatsApp() {
             {/* Header */}
             <div className="flex items-center justify-between bg-gradient-to-r from-[#07132A] to-[#0E244D] px-4 py-3.5 text-white">
               <div className="flex items-center gap-2.5">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-white">
-                  <MessageCircle className="h-4 w-4" />
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
+                  <WhatsAppBrandIcon className="h-5 w-5" />
                 </span>
                 <div>
                   <div className="text-xs font-bold">Chat with GROOTIT</div>
@@ -111,9 +112,9 @@ export function FloatingWhatsApp() {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         aria-label="Open WhatsApp quick chat"
-        className="group flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-3 text-xs font-semibold text-white shadow-[0_8px_24px_rgba(16,185,129,0.38)] transition-all hover:-translate-y-0.5 hover:bg-emerald-600"
+        className="group flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-xs font-semibold text-white shadow-[0_8px_24px_rgba(37,211,102,0.38)] transition-all hover:-translate-y-0.5 hover:bg-[#1ebe5d]"
       >
-        <MessageCircle className="h-4 w-4" />
+        <WhatsAppBrandIcon className="h-4 w-4 rounded-full ring-1 ring-white/50" />
         <span className="hidden sm:inline">WhatsApp Us</span>
       </button>
     </div>

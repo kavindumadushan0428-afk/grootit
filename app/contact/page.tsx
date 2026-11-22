@@ -10,7 +10,13 @@ import {
   ScrollTimelineLine,
   ScrollPortalCard,
 } from "@/components/MotionPrimitives";
-import { Mail, MessageCircle, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import {
+  FacebookBrandIcon,
+  InstagramBrandIcon,
+  WhatsAppBrandIcon,
+  GmailBrandIcon,
+} from "@/components/BrandIcons";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -97,7 +103,7 @@ export default function ContactPage() {
                 className="group flex items-center justify-between rounded-xl border border-slate-200/80 bg-white px-5 py-4 text-xs font-semibold text-[#0B132B] shadow-2xs transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:bg-[#EAF2FF]/40"
               >
                 <span className="inline-flex items-center gap-2.5">
-                  <Mail className="h-4 w-4 text-[#0066FF]" />
+                  <GmailBrandIcon className="h-5 w-5" />
                   <span>{LEAD_CONFIG.businessEmail}</span>
                 </span>
                 <ExternalLink className="h-3.5 w-3.5 text-slate-400 group-hover:text-[#0066FF]" />
@@ -110,8 +116,8 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between rounded-xl border border-emerald-200/80 bg-emerald-50/50 px-5 py-4 text-xs font-semibold text-emerald-900 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
                 >
-                  <span className="inline-flex items-center gap-2">
-                    <MessageCircle className="h-4 w-4 text-emerald-600 group-hover:text-white" />
+                  <span className="inline-flex items-center gap-2.5">
+                    <WhatsAppBrandIcon className="h-5 w-5" />
                     <span>{LEAD_CONFIG.whatsappPrimary.display}</span>
                   </span>
                   <span className="text-[10px] font-medium opacity-75">
@@ -125,8 +131,8 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between rounded-xl border border-emerald-200/80 bg-emerald-50/50 px-5 py-4 text-xs font-semibold text-emerald-900 transition-all hover:-translate-y-0.5 hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
                 >
-                  <span className="inline-flex items-center gap-2">
-                    <MessageCircle className="h-4 w-4 text-emerald-600 group-hover:text-white" />
+                  <span className="inline-flex items-center gap-2.5">
+                    <WhatsAppBrandIcon className="h-5 w-5" />
                     <span>{LEAD_CONFIG.whatsappSecondary.display}</span>
                   </span>
                   <span className="text-[10px] font-medium opacity-75">
@@ -140,19 +146,21 @@ export default function ContactPage() {
                   href="https://web.facebook.com/grootit04"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white"
                 >
+                  <FacebookBrandIcon className="h-4 w-4" />
                   <span>Facebook</span>
-                  <ExternalLink className="h-3 w-3" />
+                  <ExternalLink className="h-3 w-3 opacity-70" />
                 </a>
                 <a
                   href="https://www.instagram.com/grootit04/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#0066FF] hover:bg-[#0066FF] hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#D6249F] hover:bg-[#D6249F] hover:text-white"
                 >
+                  <InstagramBrandIcon className="h-4 w-4" />
                   <span>Instagram</span>
-                  <ExternalLink className="h-3 w-3" />
+                  <ExternalLink className="h-3 w-3 opacity-70" />
                 </a>
               </div>
             </Reveal>
