@@ -55,6 +55,9 @@ export const metadata: Metadata = {
       ? { other: { "msvalidate.01": bingVerification } }
       : {}),
   },
+  other: {
+    "google-adsense-account": "ca-pub-2298031085919843",
+  },
 };
 
 export const viewport: Viewport = {
@@ -71,6 +74,13 @@ export default function RootLayout({
       lang="en"
       className={`${jakarta.variable} ${jetbrains.variable} antialiased`}
     >
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2298031085919843"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen bg-white text-[#0B132B] selection:bg-[#0066FF] selection:text-white">
         <GtmNoScript />
         {children}
